@@ -23,6 +23,8 @@ class UserController:
             with open("users/user.csv", "a") as f:
                 writer = csv.writer(f)
                 writer.writerow([name, email, password])
+                print(email)
+                print(password)
                 return [name, email, password]
         else:
             return False
