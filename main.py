@@ -61,4 +61,5 @@ def get_wallet():
 	except:
 		return Response('{"success": false}', mimetype="text/json")
 
+
 app.run(host='0.0.0.0', port=4567)
