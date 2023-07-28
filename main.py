@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request, url_for, Response
 from flask_cors import CORS
 import json
-import requests
 import csv
 
 from users.main import UserController

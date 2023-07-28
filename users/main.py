@@ -1,6 +1,5 @@
 import csv
 import json
-import requests
 from libs.crypto import hash
 
 class UserController:
