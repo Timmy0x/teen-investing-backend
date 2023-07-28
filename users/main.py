@@ -5,7 +5,7 @@ from libs.crypto import hash
 
 class UserController:
     def verify_user(self, name=None, password=None, email=None):
-        if name and password and email and "@" in str(email) and "." in str(email) and len(list(name)) > 5 and len(list(password)) > 5:
+        if name and password and email and "@" in str(email) and "." in str(email) and len(name) > 3 and len(list(password)) > 3:
             return True
         else:
             return False
@@ -23,8 +23,6 @@ class UserController:
             with open("users/user.csv", "a") as f:
                 writer = csv.writer(f)
                 writer.writerow([name, email, password])
-                print(email)
-                print(password)
                 return [name, email, password]
         else:
             return False
@@ -34,8 +32,8 @@ class UserController:
             with open("users/user.csv") as f:
                 reader = csv.reader(f)
                 for row in reader:
-                    if str([name, email, password]) == str(row) or str(name) == str(row[0]) or str(email) == str(row[1]) or str(password) == str(row[2]):
-                        return [row[0], email, password]
-                return False
+                    if [name, email, password] == row:
+                        return row
+            return False
         else:
             return False
